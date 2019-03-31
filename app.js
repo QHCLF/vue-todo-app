@@ -5,15 +5,17 @@ const todoApp = new Vue({
     title: 'Todos',
     todos: JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || [
       {text: 'Learn vue.js', isDone: true},
-      {text: 'mkf is a pig', isDone: false}
+      {text: 'mkf is a ', isDone: false}
     ],
-    editing: null
+    editing: null,
+
   },
   methods:{
     createTodo(event){
       const textbox = event.target;
       this.todos.push({text: textbox.value, isDone: false});
       textbox.value = '';
+
     },
     startEditing(todo){
       this.editing = todo;
@@ -33,7 +35,7 @@ const todoApp = new Vue({
     },
     clearCompleted(){
       this.todos = this.activeTodos;
-    },
+    }
   },
   computed:{
     activeTodos(){
@@ -54,8 +56,4 @@ const todoApp = new Vue({
   }
 
 
-
-
-
-// template: `<h1>TODO App</h1>`
 })
